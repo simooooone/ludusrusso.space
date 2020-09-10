@@ -1,12 +1,17 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 module.exports = {
   siteMetadata: {
     title: `@ludusrusso space`,
     description: `My personal space, for fun, dev and learn!`,
     author: `@ludusrusso`,
-    domain: process.env.URL,
+    siteUrl: process.env.URL,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-sitemap`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -53,6 +58,21 @@ module.exports = {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         trackingId: process.env.GATSBY_GOOGLE_ANALYTICS,
+      },
+    },
+    {
+      resolve: "gatsby-plugin-iubenda-cookie-footer",
+      options: {
+        iubendaOptions: {
+          lang: "en",
+          siteId: 1997956,
+          cookiePolicyId: 27457911,
+          banner: {
+            acceptButtonDisplay: true,
+            customizeButtonDisplay: true,
+            position: "float-top-center",
+          },
+        },
       },
     },
     {

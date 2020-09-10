@@ -3,6 +3,7 @@ import { graphql, Link } from "gatsby"
 import { RandomEmoji } from "../utils"
 import { PostPreviewList } from "../components/post-preview"
 import Layout from "../components/layout"
+import SEO from "../components/seo"
 
 export const emojis = ["🖖", "🤙", "🛩", "🚀"]
 
@@ -22,6 +23,7 @@ const A = ({ children, href }) => (
 const IndexPage = props => {
   return (
     <Layout>
+      <SEO title="@ludusrusso" description="this site is for work and fun!" />
       <div className="max-w-xl mx-auto text-gray-900">
         <h1 className="text-4xl text-center mt-10 font-bold">
           I am <span className="text-green-600"> Ludovico </span>{" "}
@@ -29,9 +31,24 @@ const IndexPage = props => {
         </h1>
 
         <P>
-          I'm a cloud architect ☁️ and a full stack developer 🚀 independent
-          consultant based in Italy (Milano) with a background in Cloud Robotics
-          🤖 and Computer Vision 📷!
+          I'm a cloud architect{" "}
+          <span role="img" aria-label="cloud">
+            ☁️
+          </span>{" "}
+          and a full stack developer{" "}
+          <span role="img" aria-label="rocket">
+            🚀
+          </span>{" "}
+          independent consultant based in Italy (Milano) with a background in
+          Cloud Robotics{" "}
+          <span role="img" aria-label="robot">
+            🤖
+          </span>{" "}
+          and Computer Vision{" "}
+          <span role="img" aria-label="robot">
+            📷
+          </span>
+          !
         </P>
 
         <img src="/svg/dev.svg" className="w-full my-10" alt="ludusrusso" />
@@ -42,7 +59,10 @@ const IndexPage = props => {
         </P>
 
         <h2 className="text-4xl text-center mt-20 font-bold">
-          I like to <span className="text-green-600">share knowledge</span>! 🤝
+          I like to <span className="text-green-600">share</span>{" "}
+          <span role="img" aria-label="share">
+            🤝
+          </span>
         </h2>
 
         <P>
@@ -89,7 +109,11 @@ const IndexPage = props => {
       </div>
       <div className="mb-10">
         <h2 className="text-4xl text-center mt-20 font-bold">
-          I have a <span className="text-green-600">blog</span>! 📖
+          I have a <span className="text-green-600">blog</span>{" "}
+          <span role="img" aria-label="blog">
+            {" "}
+            📖
+          </span>
         </h2>
         <PostPreviewList posts={props.data.allMdx.edges.map(e => e.node)} />
       </div>
